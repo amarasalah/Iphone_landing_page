@@ -20,6 +20,7 @@ header {
     margin: auto;
     align-items: center;
     padding: 20px 0;
+    font-weight: bold;
 }
 .logo{
     width: 40px;
@@ -98,11 +99,69 @@ ul li:hover a::before{
     background-color: aliceblue;
 }
 .content .image {
-    width: 30%;
+    width: 600px;
+    position: relative;
+    height: 360px;
+    
 }
+.content .image .circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.image .circle::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    clip-path: circle(120px at center);
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+.circle:hover::before {
+    clip-path: circle(400px at center);
+    background-color: blanchedalmond;
+}
+.desc {
+    width: 40%;
+    position: relative;
+    left: 10%;
+    top: 40%;
+    transition: 0.5;
+    opacity: 0;
+    visibility: hidden;
+    
+
+}
+.image:hover .desc{
+    opacity: 1;
+    visibility: visible;
+
+}
+
 .content img{
     width: 180px;
+    position: relative;
+    transform: translateX(85%);
+    pointer-events: none;
+    transition: 0.5s;
+
 }
+
+.image:hover img{
+    transform: translate(175%,0%);
+    
+}
+
 .icons{
     position: absolute;
     bottom: 20px;
@@ -117,6 +176,7 @@ ul li:hover a::before{
 .icons img:hover{
     transform: scale(1.2);
 }
+
 @media(max-width:767px){
     .content{
         flex-direction: column ;
@@ -135,6 +195,9 @@ ul li:hover a::before{
     }
     .image {
         margin-left:30px;
+    }
+    header{
+        font-weight: bolder;
     }
     
 }
